@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+    
+    <style>
+        .player {
+            float: left;
+            width: auto;
+            margin: 75px;
+        }
+        .container {
+            clear: both;
+        }
+    </style>
+    
+    <body>
+        <h1 class='header' style='margin-left:50px;'>
+        </h1>
+        <div class='outer-container'>
+        </div>
+    </body>
+    
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        $('.header').html('<%= position %>' + 's');
+        $.getJSON('/players/' + '<%= position %>', function(data) {
+            var toAdd = "<div class='container'>"
+            var count = 0;
+            $.each(data, function(index, element) {
+                toAdd += "<div class='player'><h2>" + element.name + "</h2><br><img src='" + element.imageURL + "'></img><br>Likes: " + element.votes + "<br>Country: " + element.team + "<br>Position: " + element.position + "<br><form><button type='submit' formaction='up/" + element.name + "' formmethod='post'>;)</button><button formaction='down/" + element.name + "'' formmethod='post'>:/</button></form></div>"
+                count++;
+                if (count == 3) {
+                    toAdd += "</div><div class='container'>"
+                    count = 0;
+                }
+            });
+            toAdd += "</div>"
+            $('.outer-container').html(toAdd);
+        });
+    </script>
+
+</html>

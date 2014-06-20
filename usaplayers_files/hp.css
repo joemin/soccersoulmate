@@ -1,0 +1,311 @@
+/* RESPONSIVE DISABLED COMPLETELY */
+/*@navbar-default-link-hover-bg:             @brand-primary-dark;*/
+th,
+td {
+  text-align: center;
+}
+.table {
+  border-bottom: 1px solid #e5e5e5;
+}
+.table caption {
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 1.54;
+  font-weight: 700;
+  color: #999999;
+}
+.table caption.caption-link {
+  display: none;
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 0;
+  vertical-align: middle;
+  text-align: center;
+}
+.table > thead > tr > th {
+  vertical-align: middle;
+  border-bottom: 0;
+  color: #999999;
+  font-weight: normal;
+}
+.table > thead > tr > th abbr {
+  border-bottom: none;
+}
+/*
+
+BRAND NEW FIFA.com VARIABLES
+
+At follow the variables ESPRESSLY created by DEV
+from fifa.com Guide lines values.
+
+These variables has to be considered GLOBAL variables for
+fifa.com web site, desktop and mobile
+
+*/
+/*.arrows() when (@bodyDirection = rtl)
+{
+@glyphicon-chevron-left: "\3E";
+@glyphicon-chevron-right: "\3C";
+}
+
+.arrows() when (@bodyDirection = ltr)
+{
+@glyphicon-chevron-left: "\3C";
+@glyphicon-chevron-right: "\3E";
+}*/
+/*//Overlay
+.overlay(@imgPath: 'backgrounds/255.255.255.40') {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    .bg(@imgPath, 'png', transparent, repeat, 0 0);
+}*/
+.shop-list .shop-item a {
+  display: block;
+}
+.shop-list .shop-item img {
+  display: block;
+  margin: 0 auto;
+}
+.shop-list .shop-item .shop-item-detail {
+  margin-top: 15px;
+}
+.shop-list .shop-item .shop-item-price {
+  font-weight: bold;
+}
+#wmcTicker {
+  height: 40px;
+  border-top: 2px solid #cccccc;
+  border-bottom: 2px solid #cccccc;
+}
+#wmcTicker .wmcLink {
+  display: block;
+  height: 30px;
+  width: 175px;
+  float: left;
+  margin: 3px 0;
+  font-weight: bold;
+  padding: 5px 0 0 0;
+  padding-left: 10px;
+  text-transform: uppercase;
+  background: #e5e5e5;
+  color: #326295;
+  position: relative;
+  z-index: 2;
+  *zoom: expression(runtimeStyle.zoom = 1, appendChild(document.createElement('small')).className='after');
+}
+#wmcTicker .wmcLink:after,
+#wmcTicker .wmcLink > .after {
+  border-color: #e5e5e5 transparent \9;
+  border-color: #e5e5e5 rgba(229, 229, 229, 0);
+  border-style: solid;
+  border-width: 27px 11px 0 0;
+  position: absolute;
+  right: -11px;
+  top: 0;
+  width: 0;
+  content: "";
+}
+#wmcTicker .maLabel {
+  float: left;
+  margin: 0;
+  width: 80px;
+}
+#wmcTicker .maLabel .ma {
+  position: relative;
+  background: #f2f2f2;
+  vertical-align: middle;
+  height: 30px;
+  margin: 3px 0;
+  padding: 5px 0 0 0;
+  padding-left: 15px;
+  padding-right: 5px;
+  text-align: center;
+  z-index: 1;
+  *zoom: expression(runtimeStyle.zoom = 1, appendChild(document.createElement('small')).className='after');
+}
+#wmcTicker .maLabel .ma:after,
+#wmcTicker .maLabel .ma > .after {
+  border-color: #f2f2f2 transparent \9;
+  border-color: #f2f2f2 rgba(242, 242, 242, 0);
+  border-style: solid;
+  border-width: 27px 11px 0 0;
+  position: absolute;
+  right: -11px;
+  top: 0;
+  width: 0;
+  content: "";
+}
+#wmcTicker .maLabel .ma .maCode {
+  font-weight: bold;
+  color: #666666;
+}
+#wmcTicker .maLabel a,
+#wmcTicker .maLabel a:hover {
+  color: #326295;
+  text-decoration: none;
+  float: none;
+}
+#wmcTicker .maLabel a .flagsp,
+#wmcTicker .maLabel a:hover .flagsp {
+  margin-top: 4px;
+  display: block;
+  float: left;
+}
+#wmcTicker .mask {
+  float: left;
+  width: 730px;
+  position: relative;
+  overflow: hidden;
+  height: 29px;
+}
+#wmcTicker .mask .newsticker {
+  margin: 0;
+  padding: 0 5px;
+  height: 30px;
+  position: absolute;
+}
+#wmcTicker .mask .newsticker .wmcMatch {
+  float: left;
+  *zoom: expression(runtimeStyle.zoom = 1, appendChild(document.createElement('small')).className='after');
+}
+#wmcTicker .mask .newsticker .wmcMatch:after,
+#wmcTicker .mask .newsticker .wmcMatch > .after {
+  content: "/";
+  *zoom: expression(runtimeStyle.zoom = 1, innerHTML = '/');
+  padding: 0 8px;
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: lighter;
+}
+#wmcTicker .mask .newsticker .wmcMatch.sep-item:after,
+#wmcTicker .mask .newsticker .wmcMatch.sep-item > .after {
+  color: #d9d9d9;
+}
+#wmcTicker .mask .newsticker .wmcMatch .wmcMatchData {
+  display: inline;
+  top: -4px;
+  position: relative;
+}
+#wmcTicker .mask .newsticker .wmcMatch .wmcScore {
+  margin: 0 10px;
+  padding: 0 10px;
+  font-weight: bold;
+}
+#wmcTicker .mask .newsticker .wmcMatch .wmcScore.live {
+  color: #ffffff;
+  background-color: #4cbe00;
+}
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsors-list li a {
+  margin: 4px;
+}
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsorMedium,
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsorSmall {
+  display: block;
+  background-image: url("http://img.fifa.com/images/layout/sponsors/fifa_partners.gif?v=130470698502608028");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsorSmall {
+  width: 101px;
+  height: 20px;
+}
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsorSmall.adidas {
+  background-position: -170px -232px;
+}
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsorSmall.cocacola {
+  background-position: -170px -274px;
+}
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsorSmall.emirates {
+  background-position: -170px -316px;
+}
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsorSmall.sony {
+  background-position: -170px -358px;
+}
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsorSmall.hyundaikia {
+  background-position: -170px -484px;
+}
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsorSmall.visa {
+  background-position: -170px -400px;
+}
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsorMedium {
+  width: 160px;
+  height: 32px;
+}
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsorMedium.adidas {
+  background-position: 0 -220px;
+}
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsorMedium.cocacola {
+  background-position: 0 -262px;
+}
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsorMedium.emirates {
+  background-position: 0 -304px;
+}
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsorMedium.sony {
+  background-position: 0 -346px;
+}
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsorMedium.hyundaikia {
+  background-position: 0 -472px;
+}
+.home-sponsors-wrapper .sponsors-hp.fifaPartners .sponsorMedium.visa {
+  background-position: 0 -388px;
+}
+.hp-fifaweekly .top {
+  background-image: url("http://img.fifa.com/images/layout/backgrounds/magazine_big.jpg?v=130470698502608028");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 0 -5px;
+  height: 178px;
+}
+.hp-fifaweekly .top img {
+  left: 105px;
+  position: absolute;
+  top: 35px;
+}
+.hp-fifaweekly .dcm-list {
+  margin: 0;
+  padding: 0;
+}
+.hp-fifaweekly .dcm-list .dmc-teaser-content {
+  margin: 0;
+  padding: 0;
+}
+.hp-fifaweekly .dcm-list .dmc-teaser-content .dcm-summarysection {
+  margin-top: 11px;
+}
+#hp-fifa #content-wrap > .container > .row .teaser-lnd-12 {
+  padding-top: 20px;
+}
+#hp-fifa .hp-fwc-activities .slider-list li .dcm-title {
+  display: table-cell;
+  height: 40px;
+  vertical-align: bottom;
+  padding-bottom: 10px;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  #hp-fifa #content-wrap {
+    width: 1028px;
+    margin: 0 auto;
+  }
+}
+.hp-first-row {
+  margin-top: 20px;
+}
+.hp-first-row .adv.adv-mrec {
+  margin-top: 10px !important;
+}
+.de .aboutfifamedia .qlink-link.first,
+.es .aboutfifamedia .qlink-link.first {
+  margin-left: -100px;
+}
+

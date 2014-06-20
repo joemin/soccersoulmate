@@ -1,0 +1,68 @@
+/*
+
+BRAND NEW FIFA.com VARIABLES
+
+At follow the variables ESPRESSLY created by DEV
+from fifa.com Guide lines values.
+
+These variables has to be considered GLOBAL variables for
+fifa.com web site, desktop and mobile
+
+*/
+/* RESPONSIVE DISABLED COMPLETELY */
+/*@navbar-default-link-hover-bg:             @brand-primary-dark;*/
+/*.arrows() when (@bodyDirection = rtl)
+{
+@glyphicon-chevron-left: "\3E";
+@glyphicon-chevron-right: "\3C";
+}
+
+.arrows() when (@bodyDirection = ltr)
+{
+@glyphicon-chevron-left: "\3C";
+@glyphicon-chevron-right: "\3E";
+}*/
+/*//Overlay
+.overlay(@imgPath: 'backgrounds/255.255.255.40') {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    .bg(@imgPath, 'png', transparent, repeat, 0 0);
+}*/
+@font-face {
+  font-family: 'Open Sans';
+  src: url("/trunk/css/fonts/open_sans-light.eot?v=130470117814609201");
+  src: local("☺"), url("/trunk/css/fonts/open_sans-light.eot?#iefix") format('embedded-opentype'), url("/trunk/css/fonts/open_sans-light.woff?v=130470117814609201") format('woff'), url("/trunk/css/fonts/open_sans-light.ttf?v=130470117814609201") format('truetype'), url("/trunk/css/fonts/open_sans-light.svg#svgFontName?v=130470117814609201") format('svg');
+  font-style: normal;
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url("/trunk/css/fonts/open_sans.eot?v=130470117814609201");
+  src: local("☺"), url("/trunk/css/fonts/open_sans.eot?#iefix") format('embedded-opentype'), url("/trunk/css/fonts/open_sans.woff?v=130470117814609201") format('woff'), url("/trunk/css/fonts/open_sans.ttf?v=130470117814609201") format('truetype'), url("/trunk/css/fonts/open_sans.svg#svgFontName?v=130470117814609201") format('svg');
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url("/trunk/css/fonts/open_sans-bold.eot?v=130470117814609201");
+  src: local("☺"), url("/trunk/css/fonts/open_sans-bold.eot?#iefix") format('embedded-opentype'), url("/trunk/css/fonts/open_sans-bold.woff?v=130470117814609201") format('woff'), url("/trunk/css/fonts/open_sans-bold.ttf?v=130470117814609201") format('truetype'), url("/trunk/css/fonts/open_sans-bold.svg#svgFontName?v=130470117814609201") format('svg');
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "fifa-icons";
+  src: url("/trunk/css/fonts/FifaIcons.eot?v=130470117814609201");
+  src: local("☺"), url("/trunk/css/fonts/FifaIcons.eot?#iefix") format('embedded-opentype'), url("/trunk/css/fonts/FifaIcons.woff?v=130470117814609201") format('woff'), url("/trunk/css/fonts/FifaIcons.ttf?v=130470117814609201") format('truetype'), url("/trunk/css/fonts/FifaIcons.svg#svgFontName?v=130470117814609201") format('svg');
+  font-style: normal;
+}
+@font-face {
+  font-family: "fifa-icons-1024";
+  src: url("/trunk/css/fonts/fifacomicons1024-webfont.eot?v=130470117814609201");
+  src: local("☺"), url("/trunk/css/fonts/fifacomicons1024-webfont.eot?#iefix") format('embedded-opentype'), url("/trunk/css/fonts/fifacomicons1024-webfont.woff?v=130470117814609201") format('woff'), url("/trunk/css/fonts/fifacomicons1024-webfont.ttf?v=130470117814609201") format('truetype'), url("/trunk/css/fonts/fifacomicons1024-webfont.svg#svgFontName?v=130470117814609201") format('svg');
+  font-style: normal;
+}
+

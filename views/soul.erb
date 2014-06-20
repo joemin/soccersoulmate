@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+    
+    <style>
+        .player {
+            float: left;
+            width: auto;
+            margin: 75px;
+        }
+        .container {
+            clear: both;
+        }
+    </style>
+    
+    <body>
+        <h1 class='header'>
+            All Players
+        </h1>
+        <h2>
+            Search by Country:
+            <div class='countries'></div>
+            <br>
+            Search by Position:
+            <div class='positions'></div>
+        </h2>
+        <div class='outer-container'>
+        </div>
+    </body>
+    
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        var countries = ["USA", "Algeria", "Argentina", "Australia", "Belgium", "Bosnia%20and%20Herzegovina", "Brazil", "Cameroon", "Chile", "Colombia", "C%C3%B4te%20d%27Ivoire", "Costa%20Rica", "Croatia", "Ecuador", "England", "France", "Germany", "Ghana", "Greece", "Honduras", "Iran", "Italy", "Japan", "Korea%20Republic", "Mexico", "Netherlands", "Nigeria", "Portugal", "Russia", "Spain", "Switzerland", "Uruguay"];
+        //console.log(countries);
+        for (index in countries) {
+            $('.countries').html($('.countries').html() + "<a href=/players/country/" + countries[index] + ">" + decodeURI(countries[index]) + "</a>  |  ");
+        }
+        
+        
+        var positions = ["Goalkeeper", "Defender", "Midfielder", "Forward"];
+        for (index in positions) {
+            $('.positions').html($('.positions').html() + "<a href=/players/position/" + encodeURI(positions[index]) + ">" + positions[index] + "</a>  |  ");
+        }
+        
+        
+        $.getJSON('/players/' + '<%= :pageNum =>', function(data) {
+            var toAdd = "<div class='container'>"
+            var count = 0;
+            $.each(data, function(index, element) {
+                toAdd += "<div class='player'><h2>" + element.name + "</h2><br><img src='" + element.imageURL + "'></img><br>Likes: " + element.votes + "<br>Country: " + element.team + "<br>Position: " + element.position + "<br><form><button type='submit' formaction='up/" + element.name + "' formmethod='post'>;)</button><button formaction='down/" + element.name + "'' formmethod='post'>:/</button></form></div>"
+                count++;
+                if (count == 3) {
+                    toAdd += "</div><div class='container'>"
+                    count = 0;
+                }
+            });
+            toAdd += "</div>"
+            $('.outer-container').html(toAdd);
+        });
+        $('form').live('submit', function(){
+            $.post($(this).attr('action'), $(this).serialize(), function(response){
+            // do something here on success
+            },'json');
+        return false;
+   });
+    </script>
+
+</html>
