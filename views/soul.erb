@@ -4,7 +4,9 @@
         .player {
             float: left;
             width: auto;
-            margin: 75px;
+            margin-left: 75px;
+            margin-right: 75px;
+            margin-bottom: 75px;
         }
         .container {
             clear: both;
@@ -13,10 +15,17 @@
             overflow: visible;
         }
         .previous {
+            margin-left: 50px;
+            margin-bottom: 25px;
             float: left;
         }
         .next {
+            margin-left: 50px;
+            margin-bottom: 25px;
             float: left;
+        }
+        .hidden {
+            display: none;
         }
     </style>
     
@@ -34,9 +43,9 @@
             Search by Position:
             <div class='positions'></div>
         </h3>
-        <div class='outer-container'></div>
-        <div class='under-container'>
-        </div>
+        <div class='upper-container'></div>
+        <div class='main-container'></div>
+        <div class='lower-container'></div>
     </body>
     
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -52,16 +61,23 @@
         for (index in positions) {
             $('.positions').html($('.positions').html() + "<a href=/players/position/" + encodeURI(positions[index]) + ">" + positions[index] + "</a>  |  ");
         }
-
-        var prev = '<%= pageNum %>' - 1;
-        var next = '<%= pageNum %>' + 1;
-        //if you can't go back, don't put in a back link
-        if (prev == 0) {
-            $('.under-container').html("<a class='next' href='/" + next + "'></a>");
-        } else {
-            $('.under-container').html("<a class='next' href='/" + prev + "'></a><a class='next' href='/" + next + "'></a>");
-        }
         
+
+        var prev = <%= pageNum %> - 1;
+        var next = <%= pageNum %> + 1;
+        //if you can't go back, don't put in a back link. same for if you can't go forward.
+        if (prev <= 0) {
+            $('.upper-container').html("<a class='previous hidden' href='/" + prev + "'>Previous</a><a class='next' href='/" + next + "'>Next</a>");
+            $('.lower-container').html("<a class='previous hidden' href='/" + prev + "'>Previous</a><a class='next' href='/" + next + "'>Next</a>");
+        } else if (next >= 44) {
+            $('.upper-container').html("<a class='previous' href='/" + prev + "'>Previous</a><a class='next hidden' href='/" + next + "'>Next</a>");
+            $('.lower-container').html("<a class='previous' href='/" + prev + "'>Previous</a><a class='next hidden' href='/" + next + "'>Next</a>");
+        }
+        else {
+            $('.upper-container').html("<a class='previous' href='/" + prev + "'>Previous</a><a class='next' href='/" + next + "'>Next</a>");
+            $('.lower-container').html("<a class='previous' href='/" + prev + "'>Previous</a><a class='next' href='/" + next + "'>Next</a>");
+        }
+
         $.getJSON('/players/pageJSON/' + '<%= pageNum %>', function(data) {
             var toAdd = "<div class='container'>";
             var count = 0;
@@ -74,7 +90,7 @@
                 }
             });
             toAdd += "</div>";
-            $('.outer-container').html(toAdd);
+            $('.main-container').html(toAdd);
         });
 
         /*
