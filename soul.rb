@@ -61,14 +61,12 @@ get '/' do
 end
 
 get '/:pageNum' do
-  puts params[:pageNum]
   erb :soul, :locals => {:pageNum => params[:pageNum]}
 end
 
 get '/players/pageJSON/:pageNum' do
   content_type :json
-  puts params[:pageNum]
-  offset = (params[:pageNum].to_i) * 18
+  offset = (params[:pageNum].to_i - 1) * 18
   players = Player.all(:offset => offset, :limit => 18, :order => [:votes.desc])
   players.to_json
 end

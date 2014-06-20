@@ -9,6 +9,9 @@
         .container {
             clear: both;
         }
+        .header {
+            margin-left: 50px;
+        }
     </style>
     
     <head>
@@ -16,15 +19,23 @@
     </head>
 
     <body>
-        <h1 class='header' style='margin-left: 50px;'>
+        <h1 class='title'>
+            Futbol Fantasy
         </h1>
+        <h2 class='header'></h2>
         <div class='outer-container'>
         </div>
     </body>
     
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript">
-        $('.header').html('<%= position %>' + 's');
+        var plural;
+        if ('<%= position %>' == "Coach") {
+            plural = "es";
+        } else {
+            plural = "s";
+        }
+        $('.header').html('<%= position %>' + plural);
         $.getJSON('/players/positionJSON/' + '<%= position %>', function(data) {
             var toAdd = "<div class='container'>";
             var count = 0;

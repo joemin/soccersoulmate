@@ -9,20 +9,33 @@
         .container {
             clear: both;
         }
+        .under-container {
+            overflow: visible;
+        }
+        .previous {
+            float: left;
+        }
+        .next {
+            float: left;
+        }
     </style>
     
     <body>
-        <h1 class='header'>
-            All Players
+        <h1 class='title'>
+            Futbol Fantasy
         </h1>
         <h2>
+            All Players
+        </h2>
+        <h3>
             Search by Country:
             <div class='countries'></div>
             <br>
             Search by Position:
             <div class='positions'></div>
-        </h2>
-        <div class='outer-container'>
+        </h3>
+        <div class='outer-container'></div>
+        <div class='under-container'>
         </div>
     </body>
     
@@ -35,13 +48,21 @@
         }
         
         
-        var positions = ["Goalkeeper", "Defender", "Midfielder", "Forward"];
+        var positions = ["Goalkeeper", "Defender", "Midfielder", "Forward", "Coach"];
         for (index in positions) {
             $('.positions').html($('.positions').html() + "<a href=/players/position/" + encodeURI(positions[index]) + ">" + positions[index] + "</a>  |  ");
         }
+
+        var prev = '<%= pageNum %>' - 1;
+        var next = '<%= pageNum %>' + 1;
+        //if you can't go back, don't put in a back link
+        if (prev == 0) {
+            $('.under-container').html("<a class='next' href='/" + next + "'></a>");
+        } else {
+            $('.under-container').html("<a class='next' href='/" + prev + "'></a><a class='next' href='/" + next + "'></a>");
+        }
         
-        
-        $.getJSON('/players/pageJSON/' + '<%= pageNum =>', function(data) {
+        $.getJSON('/players/pageJSON/' + '<%= pageNum %>', function(data) {
             var toAdd = "<div class='container'>";
             var count = 0;
             $.each(data, function(index, element) {
@@ -54,7 +75,9 @@
             });
             toAdd += "</div>";
             $('.outer-container').html(toAdd);
-        });/*
+        });
+
+        /*
         $('form').live('submit', function(){
             $.post($(this).attr('action'), $(this).serialize(), function(response){
             // do something here on success
