@@ -20,7 +20,7 @@ class Player
 end
 
 DataMapper.finalize
-DataMapper.auto_upgrade!
+DataMapper.auto_migrate!
 
 countries = Array.new
 countries.push(43843, 43849, 43854, 43860, 43876, 43976, 43817, 43819, 43822, 43935, 44037, 43938, 43942, 43946, 43948, 43949, 43954, 43960, 43963, 43965, 43969, 43971, 43901, 43909, 43911, 43921, 43922, 43924, 43925, 43926, 43927, 43930)
@@ -61,13 +61,15 @@ get '/' do
 end
 
 get '/:pageNum' do
+  puts params[:pageNum]
   erb :soul, :locals => {:pageNum => params[:pageNum]}
 end
 
-get '/players/:pageNum' do
+get '/players/pageJSON/:pageNum' do
   content_type :json
-  offset = (params[:pageNum].to_i - 1) * 20
-  players = Player.all(:offset => offset, :limit => 20, :order => [:votes.desc])
+  puts params[:pageNum]
+  offset = (params[:pageNum].to_i) * 18
+  players = Player.all(:offset => offset, :limit => 18, :order => [:votes.desc])
   players.to_json
 end
 
@@ -75,7 +77,7 @@ get '/players/country/:country' do
   erb :byCountry, :locals => {:country => params[:country]}
 end
 
-get '/players/:country' do
+get '/players/countryJSON/:country' do
   content_type :json
   players = Player.all(:team => URI.escape(params[:country]), :order => [:votes.desc])
   players.to_json
@@ -85,7 +87,7 @@ get '/players/position/:position' do
   erb :byPosition, :locals => {:position => params[:position]}
 end
 
-get '/players/:position' do
+get '/players/positionJSON/:position' do
   content_type :json
   players = Player.all(:position => params[:position], :order => [:votes.desc])
   players.to_json
@@ -121,4 +123,20 @@ post '/players/country/:country/:player/down' do
   current = current - 1
   player.update(:votes => current)
   redirect to('/players/country/' + URI.escape(params[:country]))
+end
+
+post '/players/position/:position/:player/up' do
+  player = Player.first(:name => URI.unescape(params[:player]))
+  current = player.votes
+  current = current + 1
+  player.update(:votes => current)
+  redirect to('/players/position/' + URI.escape(params[:position]))
+end
+
+post '/players/position/:position/:player/down' do
+  player = Player.first(:name => URI.unescape(params[:player]))
+  current = player.votes
+  current = current - 1
+  player.update(:votes => current)
+  redirect to('/players/position/' + URI.escape(params[:position]))
 end

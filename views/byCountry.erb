@@ -11,6 +11,10 @@
         }
     </style>
     
+    <head>
+        <a href='/'>Home</a>
+    </head>
+    
     <body>
         <h1 class='header' style='margin-left: 50px;'>
         </h1>
@@ -21,7 +25,7 @@
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript">
         $('.header').html(decodeURI('<%= country %>'));
-        $.getJSON('/players/' + '<%= country %>', function(data) {
+        $.getJSON('/players/countryJSON/' + '<%= country %>', function(data) {
             var toAdd = "<div class='container'>"
             var count = 0;
             $.each(data, function(index, element) {
